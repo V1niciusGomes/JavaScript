@@ -11,6 +11,7 @@
             text-align: center;
             background-image: url('imagem/1682023.jpg');
             color: rgb(255, 199, 199);
+            font-family: 'Times New Roman', Times, serif;
         }
 
         hr {
@@ -23,26 +24,58 @@
         }
 
         .button {
-            background-color: rgba(255, 245, 247, 1);
-            color: #333;
-            padding: 10px 20px;
-            border: 2px solid rgba(255, 192, 203, 0.8);
-            border-radius: 5px;
-            font-size: 16px;
+            display: block;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: small;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+            margin: 0 auto;
+            position: relative;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            overflow: hidden;
+            padding: 3px;
+            isolation: isolate;
 
 
         }
 
+        .button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400%;
+            height: 100%;
+            background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+            background-size: 25% 100%;
+            animation: an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop .75s linear infinite;
+            animation-play-state: paused;
+            translate: -5% 0%;
+            transition: translate 0.25s ease-out;
+        }
 
-        .button:hover {
-            background-color: rgba(255, 192, 203, 1);
-            color: #fff;
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 192, 203, 0.5);
+
+        .button:hover::before {
+            animation-play-state: running;
+            transition-duration: 0.75s;
+            translate: 0% 0%;
+        }
+
+        @keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop {
+            to {
+                transform: translateX(-25%);
+            }
+        }
+
+        .button span {
+            position: relative;
+            display: block;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            background: rgb(255, 199, 199);
+            border-radius: 3px;
+            height: 80%;
+            color: black;
         }
     </style>
 </head>
@@ -54,7 +87,7 @@
     <p>1. A imobiliária Imóbilis vende apenas terrenos retangulares. Faça um algoritmo para ler as
         dimensões de um terreno e depois exibir a área do terreno.
     </p>
-    <button class="button" onclick="terreno()">Resultado</button>
+    <button class="button" onclick="terreno()"><span>Resultado</span></button>
     <br>
     <hr>
     <br>
@@ -62,7 +95,7 @@
     <p>2. Faça um algoritmo para calcular quantas ferraduras são necessárias para equipar todos os
         cavalos comprados para um haras.
     </p>
-    <button class="button" onclick="cavalos()">Resultado</button>
+    <button class="button" onclick="cavalos()"><span>Resultado</span></button>
     <br>
     <hr>
     <br>
@@ -72,7 +105,7 @@
         poupança (10% do total arrecadado). Você foi contratado para fazer os cálculos para o dono. Com
         base nestes fatos, faça um algoritmo para ler as quantidades de pães e de broas, e depois calcular
         os dados solicitados.</p>
-    <button class="button" onclick="padaria()">Resultado</button>
+    <button class="button" onclick="padaria()"><span>Resultado</span></button>
     <br>
     <hr>
     <br>
@@ -80,7 +113,7 @@
         ela possui. Considere sempre anos completos, e que um ano possui 365 dias. Ex: uma pessoa
         com 19 anos possui 6935 dias de vida; veja um exemplo de saída: MARIA, VOCÊ JÁ VIVEU 6935
         DIAS</p>
-    <button class="button" onclick="idade()">Resultado</button>
+    <button class="button" onclick="idade()"><span>Resultado</span></button>
     <br>
     <hr>
     <br>
@@ -89,7 +122,7 @@
         tanque
         <br>
         <br>
-        <button class="button" onclick="gasolina()">Resultado</button>
+        <button class="button" onclick="gasolina()"><span>Resultado</span></button>
 
         <hr>
         <br>
@@ -98,12 +131,58 @@
         tanque
         <br>
         <br>
-        <button class="button" onclick="gasolina()">Resultado</button>
+        <button class="button" onclick="gasolina()"><span>Resultado</span></button>
 
         <hr>
         <br>
 
-        <script src="javaatividade.js"></script>
+    <p>6. O restaurante a quilo Bem-Bão cobra R$12,00 por cada quilo de refeição. Escreva um algoritmo
+        que leia o peso do prato montado pelo cliente (em quilos) e imprima o valor a pagar. Assuma que a
+        balança já desconte o peso do prato.</p>
+    <br>
+    <br>
+    <button class="button" onclick="prato()"><span>Resultado</span></button>
+
+    <hr>
+    <br>
+
+    <p>7. Entrar com o dia e o mês de uma data e informar quantos dias se passaram desde o início do
+        ano. Esqueça a questão dos anos bissextos e considere sempre que um mês possui 30 dias.
+    </p>
+    <button class="button" onclick="dias()"><span>Resultado</span></button>
+
+
+    <hr>
+    <br>
+
+    <p>8. Faça um algoritmo para ler três notas de um aluno em uma disciplina e imprimir a sua média
+        ponderada (as notas tem pesos respectivos de 1, 2 e 3).
+    </p>
+    <button class="button" onclick="nota()"><span>Resultado</span></button>
+
+
+
+    <hr>
+    <br>
+
+    <p>9. Uma fábrica de camisetas produz os tamanhos pequeno, médio e grande, cada uma sendo
+        vendida respectivamente por 10, 12 e 15 reais. Construa um algoritmo em que o usuário forneça a
+        quantidade de camisetas pequenas, médias e grandes referentes a uma venda, e a máquina
+        informe quanto será o valor arrecadado
+    </p>
+    <button class="button" onclick="teste()"><span>Resultado</span></button>
+
+    <hr>
+    <br>
+
+    <p>10. Construa um algoritmo para calcular a distância entre dois pontos do plano cartesiano. Cada
+        ponto é um par ordenado (x,y)
+    </p>
+    <button class="button" onclick="plano()"><span>Resultado</span></button>
+
+
+
+    <script src="javaatividade.js"></script>
 </body>
 
 </html>
