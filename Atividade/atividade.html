@@ -9,73 +9,92 @@
     <style>
         body {
             text-align: center;
-            background-image: url('imagem/1682023.jpg');
-            color: rgb(255, 199, 199);
-            font-family: 'Times New Roman', Times, serif;
+            background-color: #0c0c0c;
+            /* Deep black background */
+            background-image:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            /* Grid size for the white lines */
+            color: #ffb6c1;
+            /* Light pink text */
+            font-family: 'Montserrat', sans-serif;
+            /* More modern font */
         }
 
         hr {
             border: none;
             height: 3px;
             background: linear-gradient(to right,
-                    rgba(59, 51, 51, 0.13),
-                    rgba(245, 177, 177, 0.651),
-                    rgba(56, 39, 40, 0.082));
+                    rgba(255, 20, 147, 0.2),
+                    /* DeepPink */
+                    rgba(255, 105, 180, 0.8),
+                    /* HotPink */
+                    rgba(219, 112, 219, 0.5),
+                    /* Orchid */
+                    rgba(147, 112, 219, 0.3),
+                    /* MediumPurple */
+                    rgba(138, 43, 226, 0.2)
+                    /* BlueViolet */
+                );
+            margin: 25px auto;
+            width: 80%;
         }
 
-        .button {
-            display: block;
-            cursor: pointer;
-            color: white;
+        h1 {
+            color: #ff69b4;
+            /* Hot pink for headings */
+            text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+            letter-spacing: 3px;
+        }
+
+        p {
+            color: #e6e6fa;
+            /* Lavender for paragraph text */
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 6px;
-            overflow: hidden;
-            padding: 3px;
-            isolation: isolate;
-
-
+            line-height: 1.6;
         }
 
-        .button::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 400%;
-            height: 100%;
-            background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
-            background-size: 25% 100%;
-            animation: an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop .75s linear infinite;
-            animation-play-state: paused;
-            translate: -5% 0%;
-            transition: translate 0.25s ease-out;
+        /* From Uiverse.io by zjssun */
+        .button {
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 500;
+            color: #ffffff62;
+            text-shadow: none;
+            background: transparent;
+            cursor: pointer;
+            box-shadow: transparent;
+            border: 1px solid #ffffff28;
+            transition: 0.5s ease;
+            user-select: none;
         }
 
-
-        .button:hover::before {
-            animation-play-state: running;
-            transition-duration: 0.75s;
-            translate: 0% 0%;
+        .button:hover,
+        :focus {
+            color: #ffffff;
+            background: #ff00f2;
+            border: 1px solid #ff008c;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+            box-shadow: 0 0 5px #ff008c, 0 0 20px #ff008c, 0 0 50px #ff008c,
+                0 0 100px #ff008c;
         }
 
-        @keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop {
-            to {
-                transform: translateX(-25%);
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
             }
-        }
 
-        .button span {
-            position: relative;
-            display: block;
-            padding: 1rem 1.5rem;
-            font-size: 1.1rem;
-            background: rgb(255, 199, 199);
-            border-radius: 3px;
-            height: 80%;
-            color: black;
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
@@ -87,16 +106,16 @@
     <p>1. A imobiliária Imóbilis vende apenas terrenos retangulares. Faça um algoritmo para ler as
         dimensões de um terreno e depois exibir a área do terreno.
     </p>
-    <button class="button" onclick="terreno()"><span>Resultado</span></button>
-    <br>
+    <br><button class="button" onclick="terreno()"><span>Resultado</span></button>
+    <br><br> <br>
     <hr>
     <br>
 
     <p>2. Faça um algoritmo para calcular quantas ferraduras são necessárias para equipar todos os
         cavalos comprados para um haras.
     </p>
-    <button class="button" onclick="cavalos()"><span>Resultado</span></button>
-    <br>
+    <br><button class="button" onclick="cavalos()"><span>Resultado</span></button>
+    <br><br> <br>
     <hr>
     <br>
     <p>3. A padaria Hotpão vende uma certa quantidade de pães franceses e uma quantidade de broas a
@@ -105,16 +124,16 @@
         poupança (10% do total arrecadado). Você foi contratado para fazer os cálculos para o dono. Com
         base nestes fatos, faça um algoritmo para ler as quantidades de pães e de broas, e depois calcular
         os dados solicitados.</p>
-    <button class="button" onclick="padaria()"><span>Resultado</span></button>
-    <br>
+    <br><button class="button" onclick="padaria()"><span>Resultado</span></button>
+    <br><br> <br>
     <hr>
     <br>
     <p>4. Escreva um algoritmo para ler o nome e a idade de uma pessoa, e exibir quantos dias de vida
         ela possui. Considere sempre anos completos, e que um ano possui 365 dias. Ex: uma pessoa
         com 19 anos possui 6935 dias de vida; veja um exemplo de saída: MARIA, VOCÊ JÁ VIVEU 6935
         DIAS</p>
-    <button class="button" onclick="idade()"><span>Resultado</span></button>
-    <br>
+    <br><button class="button" onclick="idade()"><span>Resultado</span></button>
+    <br><br> <br>
     <hr>
     <br>
     <p>5. Um motorista deseja colocar no seu tanque X reais de gasolina. Escreva um algoritmo para ler o
@@ -122,7 +141,7 @@
         tanque
         <br>
         <br>
-        <button class="button" onclick="gasolina()"><span>Resultado</span></button>
+        <br><button class="button" onclick="gasolina()"><span>Resultado</span></button><br><br>
 
         <hr>
         <br>
@@ -131,7 +150,7 @@
         tanque
         <br>
         <br>
-        <button class="button" onclick="gasolina()"><span>Resultado</span></button>
+        <br><button class="button" onclick="gasolina()"><span>Resultado</span></button><br><br>
 
         <hr>
         <br>
@@ -141,27 +160,30 @@
         balança já desconte o peso do prato.</p>
     <br>
     <br>
-    <button class="button" onclick="prato()"><span>Resultado</span></button>
+    <br><button class="button" onclick="prato()"><span>Resultado</span></button>
 
+    <br><br>
     <hr>
     <br>
 
     <p>7. Entrar com o dia e o mês de uma data e informar quantos dias se passaram desde o início do
         ano. Esqueça a questão dos anos bissextos e considere sempre que um mês possui 30 dias.
     </p>
-    <button class="button" onclick="dias()"><span>Resultado</span></button>
+    <br><button class="button" onclick="dias()"><span>Resultado</span></button>
 
 
+    <br><br>
     <hr>
     <br>
 
     <p>8. Faça um algoritmo para ler três notas de um aluno em uma disciplina e imprimir a sua média
         ponderada (as notas tem pesos respectivos de 1, 2 e 3).
     </p>
-    <button class="button" onclick="nota()"><span>Resultado</span></button>
+    <br><button class="button" onclick="nota()"><span>Resultado</span></button>
 
 
 
+    <br><br>
     <hr>
     <br>
 
@@ -170,18 +192,312 @@
         quantidade de camisetas pequenas, médias e grandes referentes a uma venda, e a máquina
         informe quanto será o valor arrecadado
     </p>
-    <button class="button" onclick="teste()"><span>Resultado</span></button>
+    <br><button class="button" onclick="teste()"><span>Resultado</span></button>
 
+    <br><br>
     <hr>
     <br>
 
     <p>10. Construa um algoritmo para calcular a distância entre dois pontos do plano cartesiano. Cada
         ponto é um par ordenado (x,y)
     </p>
-    <button class="button" onclick="plano()"><span>Resultado</span></button>
+    <br><button class="button" onclick="plano()"><span>Resultado</span></button>
 
+    <br><br>
+    <hr>
+    <br>
 
+    <p>11. Uma fábrica controla o tempo de trabalho sem acidentes pela quantidade de dias. Faça um
+        algoritmo para converter este tempo em anos, meses e dias. Assuma que cada mês possui sempre
+        30 dias.
+    </p>
+    <br><button class="button" onclick="converterTempo()"><span>Resultado</span></button>
 
+    <br><br>
+    <hr>
+    <br>
+
+    <p>12. Faça um algoritmo para ler o salário de um funcionário e aumentá-Io em 15%. Após o aumento,
+        desconte 8% de impostos. Imprima o salário inicial, o salário com o aumento e o salário final.
+    </p>
+    <br><button class="button" onclick="calcularSalario()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>13. Ler um número inteiro (assuma até três dígitos) e imprimir a saída da seguinte forma:
+        CENTENA = x
+        DEZENA = x
+        UNIDADE = x
+    </p>
+    <br><button class="button" onclick="separarNumero()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>14. Calcule a área de uma pizza que possui um raio R (pi=3.14).
+    </p>
+    <br><button class="button" onclick="areaPizza()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>15. Três amigos, Carlos, André e Felipe. decidiram rachar igualmente a conta de um bar. Faça um
+        algoritmo para ler o valor total da conta e imprimir quanto cada um deve pagar, mas faça com que
+        Carlos e André não paguem centavos. Ex: uma conta de R$101,53 resulta em R$33,00 para
+        Carlos, R$33,00 para André e R$35,53 para Felipe.
+    </p>
+    <br><button class="button" onclick="dividirConta()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>16. A lanchonete Gostosura vende apenas um tipo de sanduíche, cujo recheio inclui duas fatias de
+        queijo, uma fatia de presunto e uma rodela de hambúrguer. Sabendo que cada fatia de queijo ou
+        presunto pesa 50 gramas, e que a rodela de hambúrguer pesa 100 gramas, faça um algoritmo em
+        que o dono forneça a quantidade de sanduíches a fazer, e a máquina informe as quantidades (em
+        quilos) de queijo, presunto e carne necessários para compra.
+    </p>
+    <br><button class="button" onclick="calcularIngredientes()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>17. Alguns países medem temperaturas em graus Celsius, e outros em graus Fahrenheit. Faça um
+        algoritmo para ler uma temperatura Celsius e imprimi-Ia em Fahrenheit (pesquise como fazer este
+        tipo de conversão).
+    </p>
+    <br><button class="button" onclick="celsiusParaFahrenheit()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>18. A empresa Hipotheticus paga R$10,00 por hora normal trabalhada, e R$15,00 por hora extra.
+        Faça um algoritmo para calcular e imprimir o salário bruto e o salário líquido de um determinado
+        funcionário. Considere que o salário líquido é igual ao salário bruto descontando-se 10% de
+        impostos.
+    </p>
+    <br><button class="button" onclick="calcularSalarioFuncionario()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>19. A granja Frangotech possui um controle automatizado de cada frango da sua produção. No pé
+        direito do frango há um anel com um chip de identificação; no pé esquerdo são dois anéis para
+        indicar o tipo de alimento que ele deve consumir. Sabendo que o anel com chip custa R$4,00 e o
+        anel de alimento custa R$3,50, faça um algoritmo para calcular o gasto total da granja para marcar
+        todos os seus frangos.
+    </p>
+    <br><button class="button" onclick="calcularGastoFrangos()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>20. Uma confecção produz X blusas de lã e para isto gasta uma certa quantidade de novelos. Faça
+        um algoritmo para calcular quantos novelos de lã ela gasta por blusa.
+    </p>
+    <br><button class="button" onclick="calcularNovelosPorBlusa()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>21. A fábrica de refrigerantes Meia-Cola vende seu produto em três formatos: lata de 350 ml,
+        garrafa de 600 ml e garrafa de 2 litros. Se um comerciante compra uma determinada quantidade
+        de cada formato, faça um algoritmo para calcular quantos litros de refrigerante ele comprou.
+    </p>
+    <br><button class="button" onclick="calcularLitrosRefrigerante()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>22. Pedrinho tem um cofrinho com muitas moedas, e deseja saber quantos reais conseguiu
+        poupar. Faça um algoritmo para ler a quantidade de cada tipo de moeda, e imprimir o valor total
+        economizado, em reais. Considere que existam moedas de 1, 5, 10, 25 e 50 centavos, e ainda
+        moedas de 1 real. Não havendo moeda de um tipo, a quantidade respectiva é zero.
+    </p>
+    <br><button class="button" onclick="calcularEconomia()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>23. Num dia de sol, você deseja medir a altura de um prédio, porém, a trena não é suficientemente
+        longa. Assumindo que seja possível medir sua sombra e a do prédio no chão, e que você lembre
+        da sua altura, faça um algoritmo para ler os dados necessários e calcular a altura do prédio.
+    </p>
+    <br><button class="button" onclick="calcularAlturaPredio()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>24. Um tonel de refresco é feito com 8 partes de água mineral e 2 partes de suco de maracujá.
+        Faça um algoritmo para calcular quantos litros de água e de suco são necessários para se fazer X
+        litros de refresco (informados pelo usuário).
+    </p>
+    <br><button class="button" onclick="calcularRefresco()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>25. Calcule o volume de uma caixa d'água cilíndrica.
+    </p>
+    <br><button class="button" onclick="calcularVolumeCaixa()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>26. Faça um algoritmo que receba três números, calcule e mostre a multiplicação desses números.
+    </p>
+    <br><button class="button" onclick="multiplicarTresNumeros()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>27. Faça um algoritmo que receba dois números, calcule e mostre a divisão do primeiro número
+        pelo segundo. Sabe-se que o segundo número não pode ser zero, portanto não é necessário se
+        preocupar com validações.
+    </p>
+    <br><button class="button" onclick="dividirDoisNumeros()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>28. Faça um algoritmo que receba duas notas, calcule e mostre a média ponderada dessas notas,
+        considerando peso 2 para a primeira nota e peso 3 para a segunda nota.
+    </p>
+    <br><button class="button" onclick="mediaPonderada()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>29. Faça um algoritmo que receba o preço de um produto, calcule e mostre o novo preço,
+        sabendo-se que este sofreu um desconto de 10%.
+    </p>
+    <br><button class="button" onclick="calcularNovoPreco()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>30. Um funcionário recebe um salário fixo mais 4% de comissão sobre as vendas. Faça um
+        algoritmo que receba o salário fixo de um funcionário e o valor de suas vendas, calcule e mostre a
+        comissão e o salário final do funcionário.
+    </p>
+    <br><button class="button" onclick="calcularSalarioComComissao()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>31. Faça um algoritmo que receba o peso de uma pessoa, calcule e mostre:
+        a) o novo peso se a pessoa engordar 15% sobre o peso digitado;
+        b) o novo peso se a pessoa emagrecer 20% sobre o peso digitado.
+    </p>
+    <br><button class="button" onclick="calcularPeso()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>32. Faça um algoritmo que receba o peso de uma pessoa em quilos, calcule e mostre esse peso
+        em gramas.
+    </p>
+    <br><button class="button" onclick="converterPeso()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>33. Faça um algoritmo que calcule e mostre a área de um trapézio. Sabe-se que: A = (base maior +
+        base menor)* altura)/2 ;
+    </p>
+    <br><button class="button" onclick="calcularAreaTrapezio()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>34. Faça um algoritmo que calcule e mostre a área de um quadrado.
+        Sabe-se que: A = lado * lado;
+    </p>
+    <br><button class="button" onclick="calcularAreaQuadrado()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>35. Faça um algoritmo que calcule e mostre a área de um losango. Sabe-se que: A =
+        (diagonal_maior * diagonal_menor)/2;
+    </p>
+    <br><button class="button" onclick="calcularAreaLosango()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>36. Faça um algoritmo que receba o valor do salário mínimo e o valor do salário de um funcionário,
+        calcule e mostre a quantidade de salários mínimos que ganha esse funcionário.
+    </p>
+    <br><button class="button" onclick="calcularSalariosMinimos()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>37. Faça um algoritmo que calcule e mostre a tabuada de um número digitado pelo usuário.
+    </p>
+    <br><button class="button" onclick="tabuada()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>38. Faça um algoritmo que receba o ano de nascimento de uma pessoa e o ano atual, calcule e
+        mostre:
+        a) a idade dessa pessoa em anos;
+        b) a idade dessa pessoa em meses;
+        c) a idade dessa pessoa em dias;
+        d) a idade dessa pessoa em semanas.
+    </p>
+    <br><button class="button" onclick="calcularIdade()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>39. João recebeu seu salário de R$ 1200,00 e precisa pagar duas contas (C1=R$ 200,00 e
+        C2=R$120,00) que estão atrasadas. Como as contas estão atrasadas, João terá de pagar multa de
+        2% sobre cada conta. Faça um algoritmo que calcule e mostre quanto restará do salário do João
+    </p>
+    <br><button class="button" onclick="calcularRestanteSalario()"><span>Resultado</span></button>
+
+    <br><br>
+    <hr>
+    <br>
+
+    <p>40. Faça um algoritmo que receba o valor dos catetos de um triângulo, calcule e mostre o valor da
+        hipotenusa.
+    </p>
+    <br><button class="button" onclick="calcularHipotenusa()"><span>Resultado</span></button>
+
+    <br><br>
+    <br><br>
     <script src="javaatividade.js"></script>
 </body>
 
