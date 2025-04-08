@@ -355,3 +355,8 @@ function calcularHipotenusa() {
     let hipotenusa = Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2));
     alert("A hipotenusa do triângulo é: " + hipotenusa.toFixed(2));
 }
+
+function teste(){
+    let teste
+    alert(teste);
+}
