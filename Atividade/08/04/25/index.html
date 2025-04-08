@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #0c0c0c;
+            /* Deep black background */
+            background-image:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            /* Grid size for the white lines */
+            color: #ffb6c1;
+            /* Light pink text */
+            font-family: 'Montserrat', sans-serif;
+            /* More modern font */
+        }
+
+        hr {
+            border: none;
+            height: 3px;
+            background: linear-gradient(to right,
+                    rgba(255, 20, 147, 0.2),
+                    /* DeepPink */
+                    rgba(255, 105, 180, 0.8),
+                    /* HotPink */
+                    rgba(219, 112, 219, 0.5),
+                    /* Orchid */
+                    rgba(147, 112, 219, 0.3),
+                    /* MediumPurple */
+                    rgba(138, 43, 226, 0.2)
+                    /* BlueViolet */
+                );
+            margin: 25px auto;
+            width: 80%;
+        }
+
+        h1 {
+            color: #ff69b4;
+            /* Hot pink for headings */
+            text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+            letter-spacing: 3px;
+        }
+
+        p {
+            color: #e6e6fa;
+            /* Lavender for paragraph text */
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* From Uiverse.io by zjssun */
+        button {
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 500;
+            color: #ffffff62;
+            text-shadow: none;
+            background: transparent;
+            cursor: pointer;
+            box-shadow: transparent;
+            border: 1px solid #ffffff28;
+            transition: 0.5s ease;
+            user-select: none;
+        }
+
+        button:hover,
+        :focus {
+            color: #ffffff;
+            background: #ff00f2;
+            border: 1px solid #ff008c;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+            box-shadow: 0 0 5px #ff008c, 0 0 20px #ff008c, 0 0 50px #ff008c,
+                0 0 100px #ff008c;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <br><br><br>
+    <h1>1.</h1>
+    <p>Quantas vitórias o lanterna da tabela, necessita para alcançar o lider</p><br>
+    <button onclick="fut()">Calcular vitórias</button>
+    <br><br>
+    <h1>2.</h1>
+    <p>Troca de variaveis</p>
+    <button onclick="valor()">Trocar variaveis</button>
+    <br><br>
+    <br><br>
+    <h1>3.</h1>
+    <p>Seletor de sexo</p>
+    <button onclick="sexo()">Selecionar sexo</button>
+    <br><br>
+    <br><br>
+    <h1>4.</h1>
+    <p>Encontre o ASSASINO</p>
+    <button onclick="a()">Interrogar Suspeito</button>
+    <script src="Java.js"></script>
+</body>
+
+</html>
