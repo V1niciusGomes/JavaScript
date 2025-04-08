@@ -356,7 +356,3 @@ function calcularHipotenusa() {
     alert("A hipotenusa do triângulo é: " + hipotenusa.toFixed(2));
 }
 
-function teste(){
-    let teste
-    alert(teste);
-}
