@@ -1,0 +1,163 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: linear-gradient(45deg, #f0fff0, #e6f9e6, #d9f2d9, #f0fff0);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(50, 205, 50, 0.3);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #32cd32;
+    text-shadow: 0 0 10px rgba(50, 205, 50, 0.3);
+    letter-spacing: 3px;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-overflow: clip;
+}
+
+label {
+    display: block;
+    font-size: 1.1em;
+    color: #2e8b57;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(46, 139, 87, 0.2);
+}
+
+input[type="number"] {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 2px solid #d3d3d3;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333333;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #3cb371;
+    box-shadow: 0 0 10px rgba(60, 179, 113, 0.5);
+    outline: none;
+}
+
+/* Botão original mantido para compatibilidade */
+.button, button {
+    padding: 12px 30px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #2e8b57;
+    background: transparent;
+    cursor: pointer;
+    border: 2px solid #3cb371;
+    transition: all 0.5s ease;
+}
+
+.button:hover, .button:focus, button:hover, button:focus {
+    color: #ffffff;
+    background: #3cb371;
+    border-color: #2e8b57;
+    text-shadow: 0 0 5px #ffffff;
+    box-shadow: 0 0 15px rgba(60, 179, 113, 0.7);
+}
+
+/* Novo botão integrado e ajustado */
+.botao {
+    --clr-font-main: hsla(0 0% 20% / 100); /* Cor do texto escura para contraste */
+    --btn-bg-1: hsla(152 60% 50% / 1); /* Verde médio claro */
+    --btn-bg-2: hsla(165 70% 40% / 1); /* Verde teal mais escuro */
+    --btn-bg-color: hsla(360 100% 100% / 1); /* Branco para o texto */
+    --radii: 0.5em;
+    cursor: pointer;
+    padding: 0.9em 1.4em;
+    min-width: 120px;
+    min-height: 44px;
+    font-size: var(--size, 1rem);
+    font-weight: 500;
+    transition: 0.8s;
+    background-size: 280% auto;
+    background-image: linear-gradient(
+        325deg,
+        var(--btn-bg-2) 0%,
+        var(--btn-bg-1) 55%,
+        var(--btn-bg-2) 90%
+    );
+    border: none;
+    border-radius: var(--radii);
+    color: var(--btn-bg-color);
+    box-shadow:
+        0px 0px 20px rgba(60, 179, 113, 0.5),
+        0px 5px 5px -1px rgba(46, 139, 87, 0.25),
+        inset 4px 4px 8px rgba(144, 238, 144, 0.5),
+        inset -4px -4px 8px rgba(34, 139, 34, 0.35);
+}
+
+.botao:hover {
+    background-position: right top;
+}
+
+.botao:is(:focus, :focus-visible, :active) {
+    outline: none;
+    box-shadow:
+        0 0 0 3px var(--btn-bg-color),
+        0 0 0 6px var(--btn-bg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .botao {
+        transition: linear;
+    }
+}
+
+hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(to right,
+            rgba(60, 179, 113, 0.2),
+            rgba(50, 205, 50, 0.8),
+            rgba(34, 139, 34, 0.9),
+            rgba(60, 179, 113, 0.3),
+            rgba(50, 205, 50, 0.2));
+    margin: 30px auto;
+    width: 80%;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    input[type="number"] {
+        max-width: 200px;
+    }
+    button {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
